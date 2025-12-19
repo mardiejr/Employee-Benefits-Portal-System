@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* Modern Overlay Thin Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* slim width */
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* no track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: zrgba(100, 100, 100, 0.4); /* subtle gray */
+  border-radius: 9999px; /* fully rounded */
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.6); /* darker on hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
+
+/* Prevent layout shift */
+html {
+  scrollbar-gutter: stable;
+  overflow-y: overlay; /* overlay instead of pushing content */
+}
